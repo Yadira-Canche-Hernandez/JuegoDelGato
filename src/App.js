@@ -1,4 +1,8 @@
+//Importación que permite agregar el estado de reacción a los componentes de la función.
+//useState es el que realiza la unió
+
 import { useState } from 'react';
+
 
 function Square({ value, onSquareClick }) {
   return (
