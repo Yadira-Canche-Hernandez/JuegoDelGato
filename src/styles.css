@@ -1,7 +1,8 @@
+
 * {
   box-sizing: border-box;
 }
-
+/* Define el estilo de la gran parte de la aplicación*/
 body {
   font-family: sans-serif;
   margin: 20px;

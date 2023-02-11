@@ -13,6 +13,7 @@ function Square({ value, onSquareClick }) {
     <button className="square" onClick={onSquareClick}>
       {value}
     </button>
+    //.square define el estilo de cualquier componente donde la className propiedad esté establecida en square. 
   );
 }
 
