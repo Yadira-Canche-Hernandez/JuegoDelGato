@@ -16,18 +16,28 @@ function Square({ value, onSquareClick }) {
     //.square define el estilo de cualquier componente donde la className propiedad esté establecida en square. 
   );
 }
-
+//función que nos ayuda a juntar y separar los cuadrados en forma de tablero.
 function Board({ xIsNext, squares, onPlay }) {
+  //funcion que nos ayuda a ver que cual es el cuadrado en donde hay cambios o pulsaciones (Actualizació en el tablero)
   function handleClick(i) {
+    //condicional que nos ayuda a ver cual jugador es el ganador, el último en colocar su valor.
     if (calculateWinner(squares) || squares[i]) {
+      //regresa un valor de cambio por cuadrados
       return;
     }
-    const nextSquares = squares.slice();
+    //variable que nos ayuda a cambiar de lugar en las posiciones de movidas
+    const nextSquares = squares.slice(); //slice() método  Array de JavaScript
+    //condicional que nos indica que inicia con x pero después del turno lo cambie con una o
     if (xIsNext) {
+      // Inicia con una X  y el lugar lo reemplaza por la X
       nextSquares[i] = 'X';
+      //toma el índice del cuadrado que debe actualizarse y lo cambia
     } else {
+      //Si el valor anterior colocado es X el siguiente en pulsar colocara un O
       nextSquares[i] = 'O';
+      //toma el índice del cuadrado que debe actualizarse y lo cambia
     }
+
     onPlay(nextSquares);
   }
 
