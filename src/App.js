@@ -28,7 +28,7 @@ function Board({ xIsNext, squares, onPlay }) {
     //variable que nos ayuda a cambiar de lugar en las posiciones de movidas
     const nextSquares = squares.slice(); //slice() método  Array de JavaScript
     //condicional que nos indica que inicia con x pero después del turno lo cambie con una o
-    if (xIsNext) {
+    if (xIsNext) { //xIsNext(un valor booleano) 
       // Inicia con una X  y el lugar lo reemplaza por la X
       nextSquares[i] = 'X';
       //toma el índice del cuadrado que debe actualizarse y lo cambia
@@ -37,7 +37,7 @@ function Board({ xIsNext, squares, onPlay }) {
       nextSquares[i] = 'O';
       //toma el índice del cuadrado que debe actualizarse y lo cambia
     }
-
+    //Mientras no tenga un ganador tendra una llamada el juego a siguiente jugador.
     onPlay(nextSquares);
   }
 
