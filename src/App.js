@@ -40,12 +40,17 @@ function Board({ xIsNext, squares, onPlay }) {
     //Mientras no tenga un ganador tendra una llamada el juego a siguiente jugador.
     onPlay(nextSquares);
   }
-
+// calculateWinner toma una matriz de 9 cuadrados, busca un ganador y devuelve 'X', 'O'o null según corresponda. 
   const winner = calculateWinner(squares);
+  //variable que guarda el estatus de la partida
   let status;
+  //condicionales que nos muetran quien es el ganador 
   if (winner) {
+    //el estatus guarda el mensaje de ganador y el valor de X o O según el resultado de la partida
     status = 'Winner: ' + winner;
   } else {
+    //si no el estatus muestra el siguiente jugador que va a continuar su valor
+    //x?O  valor de eleccion a asignar despues de cada ronda (llama la funcion de cambio)
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
 
