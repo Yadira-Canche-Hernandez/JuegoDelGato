@@ -3,9 +3,13 @@
 
 import { useState } from 'react';
 
-
+//Funcion para crear los cuadrados del tablero.
 function Square({ value, onSquareClick }) {
+  //devuelve como un valor  que llama a la función
   return (
+    //crea un boton que nos ayuda a interpretar un cuadrado.
+    //className="square"es una propiedad o accesorio de botón que le dice a CSS cómo diseñar el botón.
+    //Evento onclick detecta cada vez que damos un click sobre la forma
     <button className="square" onClick={onSquareClick}>
       {value}
     </button>
