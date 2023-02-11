@@ -117,8 +117,10 @@ export default function Game() {
     </div>
   );
 }
-
+//una función auxiliar llamada calculateWinner que toma una matriz de 9 cuadrados, 
+//busca un ganador y devuelve 'X', 'O'o null
 function calculateWinner(squares) {
+  //matriz a trabajar 
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -129,11 +131,16 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
+  //ciclo que recorre las filas y columnas de nuestra matriz 3x3
   for (let i = 0; i < lines.length; i++) {
+    //asigna a cada posicion una variable.
     const [a, b, c] = lines[i];
+    //varifica que si una fila es completa de los mismo valores se asigna un ganador
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      //regresa el valor asignado a ganar y lo manda a la función para mostrar el X o O ganador 
       return squares[a];
     }
   }
+  //si no hay un ganador manda un null para que el juego siga
   return null;
 }
