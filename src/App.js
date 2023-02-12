@@ -120,6 +120,8 @@ export default function Game() {
       description = 'Go to game start';
     }
     return (
+      //React usa automáticamente key para decidir
+      // qué componentes actualizar. No hay forma de que un componente pregunte qué keyespecificó su padre.
       //llave de activación cuando se realiza un cambio de movimiento 
       <li key={move}>
         {/*evento de click que nos ayuda a ver el n[umero de cambios o saltos y muestra el mensaje de salida */}
@@ -129,6 +131,7 @@ export default function Game() {
   });
 
   return (
+    //puede agregar la clave como <li key={move}>, y si vuelve a cargar el juego renderizado
     <div className="game">
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
