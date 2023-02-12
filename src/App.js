@@ -55,22 +55,31 @@ function Board({ xIsNext, squares, onPlay }) {
   }
 
   return (
+    //asignación de código html mediante react 
     <>
+    {/*Divisiones de espacios con cambios */}
       <div className="status">{status}</div>
+      {/*Divisiones de espacios con cambios */}
       <div className="board-row">
+        {/*Asignamos los valores de cada fila (fila 1)*/}
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
         <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+        {/*el valor puede cambiar al hacer un click en cualquier cuadro que activa el evento de status de cambio*/}
       </div>
       <div className="board-row">
+        {/*Divisiones de espacios con cambios (fila 2)*/}
         <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
         <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
         <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
+        {/*el valor puede cambiar al hacer un click en cualquier cuadro que activa el evento de status de cambio*/}
       </div>
       <div className="board-row">
+        {/*Divisiones de espacios con cambios (fila 3)*/}
         <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
         <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+        {/*el valor puede cambiar al hacer un click en cualquier cuadro que activa el evento de status de cambio*/}
       </div>
     </>
   );
