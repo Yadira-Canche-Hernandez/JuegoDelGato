@@ -84,32 +84,45 @@ function Board({ xIsNext, squares, onPlay }) {
     </>
   );
 }
-
+// Game componente para rastrear qué jugador es el siguiente y el historial de movimientos
 export default function Game() {
+  //creación de variables y le asignamos el estado de cada cuadrado
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
+  //variable que revisa los movimientos
   const xIsNext = currentMove % 2 === 0;
+  //guarda los movimientos en una lista en forma de historial
   const currentSquares = history[currentMove];
-
+  //handlePlay función dentro del Game componente que llamará el Board componente para actualizar el juego.
   function handlePlay(nextSquares) {
+    //variable que guarda la lista y los cambios 
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+    //obtención de los valores del historial
     setHistory(nextHistory);
+  // obtención de los movimientos  y actualizarlos
     setCurrentMove(nextHistory.length - 1);
   }
-
+//función que verifica los saltos del siguiente movimiento (número)
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
   }
-
+//Utilizará mappara transformar sus historymovimientos en elementos React que representan botones en la pantalla, 
+//y mostrará una lista de botones para "saltar" a movimientos anteriores.
   const moves = history.map((squares, move) => {
+    //creación de una variable
     let description;
+    //mensaje de salida cuando el movimiento es mayor (usuario realiza un movimiento muestra el número de movimiento)
     if (move > 0) {
+      //mensaje de salida
       description = 'Go to move #' + move;
     } else {
+      //si el jugador no ha echo ningún movimiento muestra solo el mensaje inicial
       description = 'Go to game start';
     }
     return (
+      //llave de activación cuando se realiza un cambio de movimiento 
       <li key={move}>
+        {/*evento de click que nos ayuda a ver el n[umero de cambios o saltos y muestra el mensaje de salida */}
         <button onClick={() => jumpTo(move)}>{description}</button>
       </li>
     );
